@@ -1,0 +1,76 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-14 14:56:57.399947"], ["updated_at", "2017-09-14 14:56:57.399947"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateThings (20170914145705)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "things" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170914145705"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/things/new" for 127.0.0.1 at 2017-09-14 09:00:11 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ThingsController#new as HTML
+  Rendering things/new.html.erb within layouts/application
+  Rendered things/_form.html.erb (16.5ms)
+  Rendered things/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 585ms (Views: 565.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/things" for 127.0.0.1 at 2017-09-14 09:00:15 -0600
+Processing by ThingsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aHFqfI3ohqWrS6+5htAWAfD3smT3QRUpcRgxcrFGC0aL+e/JlLmT6A+M4IP5r2uhUTY9cjBWhnS/HWXrMm96kA==", "thing"=>{"name"=>"Jake"}, "commit"=>"Create Thing"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "things" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Jake"], ["created_at", "2017-09-14 15:00:15.490906"], ["updated_at", "2017-09-14 15:00:15.490906"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/things/1
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/things/1" for 127.0.0.1 at 2017-09-14 09:00:15 -0600
+Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/show.html.erb within layouts/application
+  Rendered things/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 27ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/things/1/edit" for 127.0.0.1 at 2017-09-14 09:00:18 -0600
+Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (1.9ms)
+  Rendered things/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/things/1" for 127.0.0.1 at 2017-09-14 09:00:19 -0600
+Processing by ThingsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PZ46agfxVnknFZ59HNYXXUZBu7K5KTwoLTN2w0I0pzM3GCavYeYbVF5KX/tf+OcQZYBKe9u8BpnVjkaCoZoNCQ==", "thing"=>{"name"=>"Jake"}, "commit"=>"Update Thing", "id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/things/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/things/1" for 127.0.0.1 at 2017-09-14 09:00:19 -0600
+Processing by ThingsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.1ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/show.html.erb within layouts/application
+  Rendered things/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.1ms)
+
+
