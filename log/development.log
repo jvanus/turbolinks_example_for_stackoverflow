@@ -131,3 +131,38 @@ Processing by ThingsController#edit as HTML
 Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/things/1/edit" for 127.0.0.1 at 2017-09-14 09:14:28 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (11.7ms)
+  Rendered things/edit.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 233ms (Views: 212.6ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/things/1" for 127.0.0.1 at 2017-09-14 09:14:30 -0600
+Processing by ThingsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ukkJlbkawz8ka9B1GXaaBWo8EdvkSPUR5CcJpqaQK4RYaGTT7V+QVhW4HurGqfItGl/UaiGsImJlci/GbMxeA==", "thing"=>{"name"=>"Jake is OK is OK"}, "commit"=>"Update Thing", "id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (1.5ms)
+  Rendered things/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/things/1" for 127.0.0.1 at 2017-09-14 09:14:32 -0600
+Processing by ThingsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8ukkJlbkawz8ka9B1GXaaBWo8EdvkSPUR5CcJpqaQK4RYaGTT7V+QVhW4HurGqfItGl/UaiGsImJlci/GbMxeA==", "thing"=>{"name"=>"Jake is OK is OK"}, "commit"=>"Update Thing", "id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (1.6ms)
+  Rendered things/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+
+

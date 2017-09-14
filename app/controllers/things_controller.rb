@@ -42,8 +42,8 @@ class ThingsController < ApplicationController
   def update
     respond_to do |format|
       if @thing.update(thing_params)
-        @thing.update name: "#{@thing.name} is OK"
-        format.html { redirect_to edit_thing_path(@thing), notice: 'Thing was successfully updated.' }
+        @thing.name = "#{@thing.name} is OK"
+        format.html { render :edit }
         format.json { render :show, status: :ok, location: @thing }
       else
         format.html { render :edit }
