@@ -74,3 +74,60 @@ Processing by ThingsController#show as HTML
 Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/things/1/edit" for 127.0.0.1 at 2017-09-14 09:05:30 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.3ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (11.3ms)
+  Rendered things/edit.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 235ms (Views: 211.0ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/things/1" for 127.0.0.1 at 2017-09-14 09:05:32 -0600
+Processing by ThingsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UnBM12ebqnETmVyppq0X2e4My0pV2VPEjzqNHdr9K+9Y9lASAYznXGrGnS/lg+eUzc06gzdMaXV3h71cOVOB1Q==", "thing"=>{"name"=>"Jake"}, "commit"=>"Update Thing", "id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "things" SET "name" = ?, "updated_at" = ? WHERE "things"."id" = ?[0m  [["name", "Jake is OK"], ["updated_at", "2017-09-14 15:05:32.503601"], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/things/1/edit
+Completed 200 OK in 8ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/things/1/edit" for 127.0.0.1 at 2017-09-14 09:05:32 -0600
+Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.3ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (2.1ms)
+  Rendered things/edit.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 45ms (Views: 40.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/things/1" for 127.0.0.1 at 2017-09-14 09:05:33 -0600
+Processing by ThingsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/46mrBEAxZL9PwYfsnz96Hqiytm47nBf3Y3zzIs8hEr1CLppdxeIv4Rgx5nxUg2lWWM7ENp7Su4lMMONaJIucA==", "thing"=>{"name"=>"Jake is OK"}, "commit"=>"Update Thing", "id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "things" SET "name" = ?, "updated_at" = ? WHERE "things"."id" = ?[0m  [["name", "Jake is OK is OK"], ["updated_at", "2017-09-14 15:05:33.079702"], ["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/things/1/edit
+Completed 200 OK in 7ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/things/1/edit" for 127.0.0.1 at 2017-09-14 09:05:33 -0600
+Processing by ThingsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mThing Load (0.2ms)[0m  [1m[34mSELECT  "things".* FROM "things" WHERE "things"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering things/edit.html.erb within layouts/application
+  Rendered things/_form.html.erb (1.4ms)
+  Rendered things/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
